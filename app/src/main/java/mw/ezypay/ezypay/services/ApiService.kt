@@ -1,5 +1,6 @@
 package mw.ezypay.ezypay.services
 
+import mw.ezypay.ezypay.data.EzyPayApiResponse
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -8,13 +9,12 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 import java.util.concurrent.TimeUnit
 
-interface EzyPayAPI {
-    @POST("")
+interface EzyPayApi {
     @Headers("ApiKey: ")
-    suspend fun add()
+    suspend fun add(): EzyPayApiResponse
     companion object{
         private lateinit var retrofit: Retrofit
-        fun init(): EzyPayAPI {
+        fun init(): EzyPayApi {
             val client = OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30,TimeUnit.SECONDS)
@@ -27,7 +27,7 @@ interface EzyPayAPI {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
             }
-            return retrofit.create(EzyPayAPI::class.java)
+            return retrofit.create(EzyPayApi::class.java)
         }
     }
 }

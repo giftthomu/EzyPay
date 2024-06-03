@@ -1,8 +1,9 @@
 package mw.ezypay.ezypay.screens
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavHostController) {
 
 }

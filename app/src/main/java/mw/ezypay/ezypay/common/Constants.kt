@@ -35,6 +35,7 @@ object AppConfig {
     const val DEBUG_MODE = true
     const val DEFAULT_TIMEOUT = 30L // seconds
     const val SUPPORT_EMAIL = "*"
+    const val APP_VERSION = "1.0.0"
 }
 
 object UiConstants {

@@ -3,6 +3,7 @@ package mw.ezypay.ezypay
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import mw.ezypay.ezypay.navigation.NavGraph
 import mw.ezypay.ezypay.ui.theme.EzyPayTheme
 
 class MainActivity : ComponentActivity() {
@@ -10,7 +11,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             EzyPayTheme {
-
+             NavGraph()
             }
         }
     }

@@ -6,7 +6,6 @@ data class EzyPayApiResponse(
     val data: Data,
     val errors: List<Errors>
 )
-
 data class Errors(
     val errorCode: Int,
     val fieldName: String,

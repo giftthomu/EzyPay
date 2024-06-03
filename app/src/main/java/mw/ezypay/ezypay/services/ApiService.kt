@@ -1,31 +1,29 @@
 package mw.ezypay.ezypay.services
 
-import mw.ezypay.ezypay.data.EzyPayApiResponse
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Headers
-import java.util.concurrent.TimeUnit
+import mw.ezypay.ezypay.common.ApiConstants
+import mw.ezypay.ezypay.data.responses.EzyPayApiResponse
+import mw.ezypay.ezypay.data.requets.LoginRequest
+import mw.ezypay.ezypay.data.requets.RegisterRequest
+import retrofit2.http.Body
+import retrofit2.http.POST
 
-interface EzyPayApi {
-    @Headers("ApiKey: ")
-    suspend fun add(): EzyPayApiResponse
-    companion object{
-        private lateinit var retrofit: Retrofit
-        fun init(): EzyPayApi {
-            val client = OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30,TimeUnit.SECONDS)
-                .callTimeout(30,TimeUnit.SECONDS)
-                .build()
-            if(!Companion::retrofit.isInitialized){
-                retrofit = Retrofit.Builder()
-                    .baseUrl("")
-                    .client(client)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-            }
-            return retrofit.create(EzyPayApi::class.java)
-        }
-    }
+interface ApiService {
+
+    @POST(ApiConstants.LOGIN_ENDPOINT)
+    suspend fun login(@Body loginRequest: LoginRequest): EzyPayApiResponse
+
+    @POST(ApiConstants.REGISTER_ENDPOINT)
+    suspend fun register(@Body registerRequest: RegisterRequest): EzyPayApiResponse
+
+   /* @GET("user/profile")
+    suspend fun getUserProfile(@Header("Authorization") token: String): UserProfileResponse
+
+    @GET("transactions")
+    suspend fun getTransactions(@Header("Authorization") token: String): TransactionResponse
+
+    @GET("payment_methods")
+    suspend fun getPaymentMethods(@Header("Authorization") token: String): PaymentMethodsResponse
+
+    @POST("payments")
+    suspend fun makePayment(@Header("Authorization") token: String, @Body paymentRequest: PaymentRequest): PaymentResponse*/
 }

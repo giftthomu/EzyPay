@@ -15,7 +15,7 @@ fun NavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
     startDestination: String = Destinations.Login.route
-){
+) {
     NavHost(
         navController = navController,
         startDestination = startDestination,
@@ -25,9 +25,9 @@ fun NavGraph(
         composable(Destinations.Register.route) { RegisterScreen(navController) }
         composable(Destinations.Home.route) { HomeScreen(navController) }
 
-       /* composable(Destinations.Dashboard.route) { DashboardScreen(navController) }
-        composable(Destinations.TransactionHistory.route) { TransactionHistoryScreen(navController) }
-        composable(Destinations.PaymentMethods.route) { PaymentMethodsScreen(navController) }
-        composable(Destinations.Profile.route) { ProfileScreen(navController) } */
+        /* composable(Destinations.Dashboard.route) { DashboardScreen(navController) }
+         composable(Destinations.TransactionHistory.route) { TransactionHistoryScreen(navController) }
+         composable(Destinations.PaymentMethods.route) { PaymentMethodsScreen(navController) }
+         composable(Destinations.Profile.route) { ProfileScreen(navController) } */
     }
 }

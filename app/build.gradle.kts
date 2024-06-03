@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "mw.ezypay.ezypay"
+    namespace = "mw.ezyPay"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "mw.ezypay.ezypay"
+        applicationId = "mw.ezyPay"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -66,7 +66,34 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    //RETROFIT
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // ViewModel and LiveData
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
+    implementation (libs.androidx.lifecycle.runtime.ktx.v281)
+    implementation (libs.androidx.lifecycle.livedata.ktx)
+
+    // Hilt for Dependency Injection
+    implementation (libs.hilt.android)
+
+
+    // Retrofit for Networking
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.logging.interceptor)
+
+    // Room for Local Database
+    implementation (libs.androidx.room.runtime)
+    implementation (libs.androidx.room.ktx)
+
+    // Coroutines for asynchronous programming
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
+
+    // Coil for Image Loading
+    implementation (libs.coil.compose)
+
+    // Accompanist for additional Compose utilities
+    implementation (libs.accompanist.insets)
+    implementation (libs.accompanist.navigation.animation)
+    implementation (libs.accompanist.permissions)
+
 }

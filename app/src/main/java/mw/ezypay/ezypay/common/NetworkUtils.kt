@@ -12,7 +12,8 @@ import java.io.IOException
 object NetworkUtils {
 
     fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
         return when {
@@ -38,6 +39,7 @@ object NetworkUtils {
                         val errorResponse = convertErrorBody(throwable)
                         Result.failure(NetworkError.HttpError(code, errorResponse))
                     }
+
                     else -> Result.failure(NetworkError.UnknownError(throwable))
                 }
             }

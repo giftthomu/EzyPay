@@ -1,4 +1,4 @@
-package mw.ezypay.ezypay.data
+package mw.ezypay.ezypay.data.responses
 
 data class EzyPayApiResponse(
     val statusCode: Int,
@@ -14,5 +14,5 @@ data class Errors(
 )
 
 data class Data(
-    val data : String
+    val data: String
 )

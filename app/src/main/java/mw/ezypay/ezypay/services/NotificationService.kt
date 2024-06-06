@@ -32,7 +32,7 @@ class NotificationService(private val context: Context) {
         }
     }
 
-    /*fun showNotification(title: String, message: String) {
+   /* fun showNotification(title: String, message: String) {
         val builder = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(R.drawable.ic_notification)
             .setContentTitle(title)

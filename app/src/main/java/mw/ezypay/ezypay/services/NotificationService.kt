@@ -32,15 +32,15 @@ class NotificationService(private val context: Context) {
         }
     }
 
-   /* fun showNotification(title: String, message: String) {
+    fun showNotification(title: String, message: String) {
         val builder = NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.drawable.ic_notification)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle(title)
             .setContentText(message)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(context)) {
-            notify(notificationId, builder.build())
+
         }
-    }*/
+    }
 }

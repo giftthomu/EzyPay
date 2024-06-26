@@ -10,7 +10,6 @@ import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiService {
-
     @POST(ApiConstants.LOGIN_ENDPOINT)
     suspend fun login(@Body loginRequest: LoginRequest): EzyPayApiResponse
 
@@ -19,13 +18,13 @@ interface ApiService {
 
    @GET(ApiConstants.USER_PROFILE_ENDPOINT)
     suspend fun getUserProfile(@Header("Authorization") token: String): EzyPayApiResponse
-/*
+
     @GET(ApiConstants.TRANSACTIONS_ENDPOINT)
-    suspend fun getTransactions(@Header("Authorization") token: String): TransactionResponse
+    suspend fun getTransactions(@Header("Authorization") token: String): EzyPayApiResponse
 
     @GET(ApiConstants.PAYMENT_METHODS_ENDPOINT)
-    suspend fun getPaymentMethods(@Header("Authorization") token: String): PaymentMethodsResponse
+    suspend fun getPaymentMethods(@Header("Authorization") token: String): EzyPayApiResponse
 
     @POST(ApiConstants.TRANSACTIONS_ENDPOINT)
-    suspend fun makePayment(@Header("Authorization") token: String, @Body paymentRequest: PaymentRequest): PaymentResponse*/
+    suspend fun makePayment(@Header("Authorization") token: String): EzyPayApiResponse
 }

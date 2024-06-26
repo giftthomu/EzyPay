@@ -7,13 +7,18 @@ import javax.inject.Inject
 
 class AuthService @Inject constructor(private val apiService: ApiService) {
 
-    suspend fun login(email: String, password: String): EzyPayApiResponse {
-        val loginRequest = LoginRequest(email, password)
+    suspend fun login(identifier: String, password: String): EzyPayApiResponse {
+        val isEmail = identifier.contains("@")
+        val loginRequest = if (isEmail) {
+            LoginRequest(email = identifier, phone = null, password = password)
+        } else {
+            LoginRequest(email = null, phone = identifier, password = password)
+        }
         return apiService.login(loginRequest)
     }
 
-    suspend fun register(email: String, firstName: String,lastName:String, password: String): EzyPayApiResponse {
-        val registerRequest = RegisterRequest(email, firstName, lastName , password)
+    suspend fun register(firstName: String,lastName:String,email: String, phone:String, password: String): EzyPayApiResponse {
+        val registerRequest = RegisterRequest(firstName, lastName, email, phone, password)
         return apiService.register(registerRequest)
     }
 }

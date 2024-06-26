@@ -1,7 +1,5 @@
 package mw.ezypay.ezypay.screens.aunthetication
 
-
-import android.provider.ContactsContract.CommonDataKinds.Email
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

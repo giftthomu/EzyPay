@@ -21,7 +21,7 @@ fun NavGraph(
         startDestination = startDestination,
         modifier = modifier
     ) {
-        composable(Destinations.Login.route) { LoginScreen(navController) }
+        composable(Destinations.Login.route) { LoginScreen() }
         composable(Destinations.Register.route) { RegisterScreen(navController) }
         composable(Destinations.Home.route) { HomeScreen(navController) }
 

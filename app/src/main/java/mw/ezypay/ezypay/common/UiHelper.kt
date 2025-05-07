@@ -2,6 +2,7 @@ package mw.ezypay.ezypay.common
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -51,7 +52,10 @@ object UiHelper {
             leadingIcon = leadingIcon?.let { { Icon(it, contentDescription = null) } },
             keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
             visualTransformation = visualTransformation,
-            modifier = modifier.fillMaxWidth()
+            modifier = modifier
+               // .border(shape = RoundedCornerShape())
+                .background(color = Color.LightGray)
+                .fillMaxWidth()
         )
     }
 

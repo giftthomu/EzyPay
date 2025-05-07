@@ -46,7 +46,7 @@ import mw.ezypay.ezypay.common.UiHelper
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun LoginScreen(navController: NavController) {
+fun LoginScreen() {
     var identifier by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var rememberMe by remember { mutableStateOf(false) }
@@ -59,7 +59,7 @@ fun LoginScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground), // Replace with your logo resource
+            painter = painterResource(id = R.drawable.ic_launcher_foreground),
             contentDescription = "App Logo",
             modifier = Modifier.size(100.dp),
             contentScale = ContentScale.Fit
@@ -67,7 +67,7 @@ fun LoginScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text(text = "One account", style = MaterialTheme.typography.bodyMedium)
+        Text(text = "One accounts", style = MaterialTheme.typography.bodyMedium)
         Text(text = "Many possibilities", style = MaterialTheme.typography.bodyMedium)
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -75,7 +75,7 @@ fun LoginScreen(navController: NavController) {
         UiHelper.EzyPayTextField(
             value = identifier,
             onValueChange = { identifier = it },
-            label = "E-mail address or phone number",
+            label = "Enter Account Number",
             leadingIcon = if (identifier.contains("@")) Icons.Filled.Email else Icons.Filled.Phone,
             keyboardType = if (identifier.contains("@")) KeyboardType.Email else KeyboardType.Phone
             )
@@ -85,7 +85,7 @@ fun LoginScreen(navController: NavController) {
         UiHelper.EzyPayTextField(
             value = password,
             onValueChange = { password = it },
-            label = "Password",
+            label = "PIN",
             leadingIcon = Icons.Filled.Lock,
             visualTransformation = PasswordVisualTransformation()
         )
@@ -98,15 +98,12 @@ fun LoginScreen(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = rememberMe,
-                    onCheckedChange = { rememberMe = it }
-                )
-                Text("Remember me")
+                TextButton(onClick = { /* Handle forgot password */ }) {
+                    Text("Forgot Account No. or PIN?")
+                }
+
             }
-            TextButton(onClick = { /* Handle forgot password */ }) {
-                Text(text = "Forgot password?", color = Color.Red)
-            }
+
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -145,5 +142,5 @@ fun LoginScreen(navController: NavController) {
 @Composable
 @Preview
 fun PreviewLogin() {
-
+    LoginScreen()
 }
